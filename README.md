@@ -39,13 +39,21 @@ Both options resolve from **Maven Central** (`mavenCentral()` is usually already
 
 The plugin adds the library to `commonMain` for you.
 
-`settings.gradle.kts`:
+`settings.gradle.kts` — the plugin resolves from `pluginManagement`, and the library it adds
+resolves from `dependencyResolutionManagement`, so both need `mavenCentral()`:
 
 ```kotlin
 pluginManagement {
     repositories {
         google()
         gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
         mavenCentral()
     }
 }
