@@ -73,7 +73,7 @@ mavenPublishing {
                 "a shared HTTP transport plus trace/span id hex normalisation."
         )
         inceptionYear.set("2026")
-        url.set("https://github.com/CodeDTX/json_exporter")
+        url.set("https://github.com/CodeDTX/otel-json-exporter")
         licenses {
             license {
                 name.set("The Apache License, Version 2.0")
@@ -88,9 +88,9 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/CodeDTX/json_exporter")
-            connection.set("scm:git:git://github.com/CodeDTX/json_exporter.git")
-            developerConnection.set("scm:git:ssh://git@github.com/CodeDTX/json_exporter.git")
+            url.set("https://github.com/CodeDTX/otel-json-exporter")
+            connection.set("scm:git:git://github.com/CodeDTX/otel-json-exporter.git")
+            developerConnection.set("scm:git:ssh://git@github.com/CodeDTX/otel-json-exporter.git")
         }
     }
 }

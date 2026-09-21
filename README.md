@@ -1,6 +1,8 @@
-# json_exporter
+# otel-json-exporter
 
 A tiny **Kotlin Multiplatform** (Android + iOS) helper for sending **OTLP/JSON** telemetry.
+
+> Published as `io.github.codedtx:json_exporter` (library) and `io.github.codedtx.jsonexporter` (Gradle plugin).
 
 Most OpenTelemetry HTTP exporters (opentelemetry-java, opentelemetry-swift) speak **protobuf only**.
 When your collector/gateway accepts `application/json` instead, you still need to *send* the bytes
@@ -29,9 +31,37 @@ fun fixOtlpJsonIds(json: String): String
 - `fixOtlpJsonIds` is needed when your serializer emits proto3-canonical JSON (base64 byte fields),
   e.g. swift-protobuf. It's a safe no-op on already-hex ids.
 
-## Install (Maven Central)
+## Install
 
-`settings.gradle.kts` — `mavenCentral()` is usually already there:
+Both options resolve from **Maven Central** (`mavenCentral()` is usually already in your repos).
+
+### Option A — Gradle plugin (recommended)
+
+The plugin adds the library to `commonMain` for you.
+
+`settings.gradle.kts`:
+
+```kotlin
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+```
+
+Module `build.gradle.kts` (KMP):
+
+```kotlin
+plugins {
+    id("io.github.codedtx.jsonexporter") version "1.1.1"
+}
+```
+
+### Option B — plain dependency
+
+`settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -48,7 +78,7 @@ Module `build.gradle.kts` (KMP):
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("io.github.codedtx:json_exporter:1.0.0")
+            implementation("io.github.codedtx:json_exporter:1.1.1")
         }
     }
 }
