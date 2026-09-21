@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "json_exporter"
+include(":gradle-plugin")
